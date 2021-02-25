@@ -1,8 +1,15 @@
 import React from "react";
 
+import {
+  StyledAbout as StyledFaq,
+  StyledDescription,
+  StyledHide,
+  StyledImage,
+} from "../components/style";
+
 const FaqSection = () => {
   return (
-    <div className="faq">
+    <StyledFaq>
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
@@ -54,7 +61,7 @@ const FaqSection = () => {
           </p>
         </div>
       </div>
-    </div>
+    </StyledFaq>
   );
 };
 
