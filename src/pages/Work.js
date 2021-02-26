@@ -13,6 +13,7 @@ import {
   slider,
   sliderContainer,
 } from "../animation";
+
 import { useScroll } from "../components/useScroll";
 const Work = () => {
   const [element, controls] = useScroll();
@@ -24,13 +25,13 @@ const Work = () => {
       animate="show"
       exit="exit"
     >
+      {" "}
       <motion.div variants={sliderContainer}>
         <StyledFrame1 variants={slider} />
         <StyledFrame2 variants={slider} />
         <StyledFrame3 variants={slider} />
         <StyledFrame4 variants={slider} />
       </motion.div>
-
       <StyledMovie>
         <motion.h2 variants={fade}>The Athlete</motion.h2>
         <motion.div className="line" variants={lineAnim}></motion.div>
