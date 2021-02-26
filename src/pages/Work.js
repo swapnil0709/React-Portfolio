@@ -5,7 +5,14 @@ import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import {
+  pageAnimation,
+  fade,
+  photoAnim,
+  lineAnim,
+  slider,
+  sliderContainer,
+} from "../animation";
 
 const Work = () => {
   return (
@@ -15,23 +22,32 @@ const Work = () => {
       animate="show"
       exit="exit"
     >
+      <motion.div variants={sliderContainer}>
+        <StyledFrame1 variants={slider} />
+        <StyledFrame2 variants={slider} />
+        <StyledFrame3 variants={slider} />
+        <StyledFrame4 variants={slider} />
+      </motion.div>
+
       <StyledMovie>
-        <h2>The Athlete</h2>
-        <div className="line"></div>
+        <motion.h2 variants={fade}>The Athlete</motion.h2>
+        <motion.div className="line" variants={lineAnim}></motion.div>
         <Link to="/work/the-athlete">
-          <img src={athlete} alt="Athlete" />
+          <StyledHide>
+            <motion.img src={athlete} variants={photoAnim} alt="Athlete" />
+          </StyledHide>
         </Link>
       </StyledMovie>
       <StyledMovie>
-        <h2>The Racer</h2>
-        <div className="line"></div>
+        <motion.h2>The Racer</motion.h2>
+        <motion.div className="line" variants={lineAnim}></motion.div>
         <Link to="/work/the-racer">
-          <img src={theracer} alt="theracer" />
+          <img variants={photoAnim} src={theracer} alt="theracer" />
         </Link>
       </StyledMovie>
       <StyledMovie>
         <h2>Good Times</h2>
-        <div className="line"></div>
+        <motion.div className="line" variants={lineAnim}></motion.div>
         <Link to="/work/good-times">
           <img src={goodtimes} alt="goodtimes" />
         </Link>
@@ -54,7 +70,7 @@ const StyledMovie = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
-    background: #cccccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -62,6 +78,29 @@ const StyledMovie = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+
+const StyledHide = styled.div`
+  overflow: hidden;
+`;
+const StyledFrame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
+const StyledFrame2 = styled(StyledFrame1)`
+  background: #ff8efb;
+`;
+const StyledFrame3 = styled(StyledFrame1)`
+  background: #8ed2ff;
+`;
+const StyledFrame4 = styled(StyledFrame1)`
+  background: #8effa0;
 `;
 
 export default Work;
