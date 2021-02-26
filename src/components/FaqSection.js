@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  StyledAbout,
-  StyledDescription,
-  StyledHide,
-  StyledImage,
-} from "../components/style";
+import { StyledAbout } from "../components/style";
 import Toggle from "./Toggle";
 import { AnimateSharedLayout } from "framer-motion";
 //Animate Shared Layout detects if elements layout changed
+import { scrollReveal } from "../animation";
+import { useScroll } from "./useScroll";
+
 const FaqSection = () => {
+  const [element, controls] = useScroll();
   return (
-    <StyledFaq>
+    <StyledFaq
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
