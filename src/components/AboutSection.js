@@ -8,6 +8,7 @@ import {
   StyledHide,
   StyledImage,
 } from "../components/style";
+import Wave from "./Wave";
 const AboutSection = () => {
   return (
     <StyledAbout>
@@ -34,6 +35,7 @@ const AboutSection = () => {
       <StyledImage>
         <motion.img variants={photoAnim} src={home1} alt="Guy with a camera" />
       </StyledImage>
+      <Wave />
     </StyledAbout>
   );
 };
